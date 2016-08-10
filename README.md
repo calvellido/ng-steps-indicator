@@ -1,5 +1,10 @@
 # ng-steps-indicator
-A simple Angular directive to render a step selector
+
+A simple Angular directive to render a step selector. 
+
+You can check it on https://calvellido.github.io/ng-steps-indicator
+
+---
 
 
 This directive graphically renders a number of steps and highlights the current step
