@@ -1,0 +1,27 @@
+<!doctype html>
+<html data-ng-app="app">
+    <head>
+		<title>Steps indicator example</title>
+		<meta charset="UTF-8">
+
+        <script type="text/javascript" src="js/angular-1.0.8.js"></script>
+        <script type="text/javascript" src="js/mainCtrl.js"></script>
+		<script type="text/javascript" src="ng-steps-indicator/ngStepsIndicatorDrctv.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/styles.css"></link>
+
+    </head>
+    <body>
+
+        <div data-ng-controller="mainController" class="container">
+
+			<h1>STEPS PROCESS TITLE</h1>
+
+			<ng-steps-indicator steps-number="steps.stepsNumber" steps-current="steps.stepsCurrent" steps-legends="steps.stepsLegends" steps-on-click="changeUrl" steps-from-right="steps.stepsFromRight"></ng-steps-indicator>
+
+			<div data-ng-include="'templates/step' + steps.stepsCurrent + '.html'" onload="stepLoaded()"></div>
+
+		</div>
+
+    </body>
+</html>

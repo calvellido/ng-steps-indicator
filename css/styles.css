@@ -1,0 +1,270 @@
+/* open-sans-regular - latin */
+
+@font-face {
+    font-family: 'normal';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'),
+       url('../fonts/OpenSans-Regular.ttf') format('truetype');
+    /*src: url('../fonts/OpenSans-Regular.ttf') format('truetype');*/
+}
+
+html {
+    height: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'normal';
+    background-color: rgb(243, 243, 243);
+    color: #777;
+}
+
+/* Contaienr styling */
+
+.container {
+	text-align: center;
+	font-size: 14px;
+    margin-top: 10rem;
+	margin-left: 20%;
+    margin-right: 20%;
+}
+
+.step-container {
+    background-color: #FFF;
+    border: solid 2px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+}
+
+.step-container section {
+    margin-top: 5rem;
+}
+
+.step-container .section-heading {
+    margin-bottom: 3rem;
+}
+
+.step-container .btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 1px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    color: #FFF;
+    border-color: #33b0ec;
+    background-color: #33b0ec;
+    padding: 1.8rem 4rem;
+    margin: 5rem 0;
+    transition: border-color .3s ease, background-color .3s ease;
+}
+
+.step-container .btn:hover {
+    text-decoration: none;
+    border-color: #3276b1;
+    background-color: #3276b1;
+}
+
+.step-container .btn::-moz-focus-inner {
+    border: 0;
+}
+
+
+
+/* Steps indicator stylings */
+
+ng-steps-indicator, [data-ng-steps-indicator] {
+    display: block;
+    margin: 6rem auto;
+    /* This margin will compensate the negative margin on case of legends */
+    color: #777;
+}
+
+ng-steps-indicator .si-list, [data-ng-steps-indicator] .si-list {
+    list-style-type: none;
+    margin: 4rem 4rem;
+    padding: 0;
+    display: flex;
+    position: relative;
+}
+
+ng-steps-indicator .si-list::before, [data-ng-steps-indicator] .si-list::before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    bottom: 40%;
+    left: 0;
+    right: 0;
+    background-color: #FFF;
+    border-radius: 2px;
+}
+
+ng-steps-indicator .si-item, [data-ng-steps-indicator] .si-item {
+    flex: 1;
+    min-width: 0;
+    /* This will make the overflown content to actually be 'ellipsizable' */
+    position: relative;
+}
+
+ng-steps-indicator .si-item.active::before, [data-ng-steps-indicator] .si-item.active::before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    bottom: 40%;
+    left: 0;
+    right: 0;
+    background-color: #33b0ec;
+    border-radius: 2px;
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-name: slideInLeft;
+}
+
+
+/*ng-steps-indicator .si-item.active.from-left::before, [data-ng-steps-indicator] .si-item.active.from-left::before{
+	animation-duration: .9s;
+	animation-fill-mode: both;
+	animation-name: slideInLeft;
+}*/
+
+ng-steps-indicator .si-item.active.from-right::before, [data-ng-steps-indicator] .si-item.active.from-right::before {
+    animation-name: slideInRight;
+}
+
+ng-steps-indicator .si-item-legend, [data-ng-steps-indicator] .si-item-legend {
+    cursor: pointer;
+    margin-top: -4rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+ng-steps-indicator .si-item.active .si-item-legend, [data-ng-steps-indicator] .si-item.active .si-item-legend {
+    font-weight: 700;
+    color: #33b0ec;
+}
+
+ng-steps-indicator .si-item-circle, [data-ng-steps-indicator] .si-item-circle {
+    font-weight: 700;
+    width: 4rem;
+    height: 3rem;
+	padding-top: 1rem;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 auto;
+    cursor: pointer;
+    position: relative;
+    z-index: 4;
+    transition: 0.3s all ease;
+}
+
+ng-steps-indicator .si-item.active .si-item-circle, [data-ng-steps-indicator] .si-item.active .si-item-circle {
+    color: #FFF;
+    background-color: #33b0ec;
+}
+
+ng-steps-indicator .si-item-circle:hover, [data-ng-steps-indicator] .si-item-circle:hover {
+
+    background-color: #DDD;
+}
+
+
+/*
+ * Animations
+ * Credit goes to @daneden: http://daneden.github.io/animate.css
+ * Sadly ngAnimate, that could handle this way better, is not available for Angular 1.08
+ */
+
+.animated {
+    animation-duration: .6s;
+    animation-fill-mode: both;
+}
+
+.animated-fast {
+    animation-duration: .3s;
+    animation-fill-mode: both;
+}
+
+.animated-slow {
+    animation-duration: .75s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        overflow: auto;
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+        overflow: auto;
+    }
+}
+
+.fadeInRight {
+    animation-name: fadeInRight;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        overflow: auto;
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+        overflow: auto;
+    }
+}
+
+.fadeInLeft {
+    animation-name: fadeInLeft;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInLeft {
+    animation-name: slideInLeft;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInRight {
+    animation-name: slideInRight;
+}

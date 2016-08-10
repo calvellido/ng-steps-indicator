@@ -1,0 +1,6 @@
+<ul class="si-list">
+    <li class="si-item" data-ng-class="{'active' : ($index+1 == stepsCurrent), 'from-right' : stepsFromRight}" data-ng-repeat="i in getNumber(stepsNumber)">
+		<div data-ng-show="stepsLegends[0]" class="si-item-legend" data-ng-bind="stepsLegends[$index]" data-ng-click="clickStep($index+1)"></div>
+		<div class="si-item-circle" data-ng-bind="($index+1)" data-ng-click="clickStep($index+1)"></div>
+    </li>
+</ul>
